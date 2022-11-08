@@ -22,11 +22,6 @@
 					  ${errorMessage}
 					  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
 					</div>
-					
-					<div class="alert alert-warning alert-dismissible fade show " role="alert">
-					  Attenzione!!! Funzionalità ancora non implementata. Sulla 'Conferma' per il momento parte il 'listAll'
-					  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-					</div>
 			  
 			  <div class='card'>
 				    <div class='card-header'>

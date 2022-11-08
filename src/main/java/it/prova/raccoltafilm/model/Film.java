@@ -97,4 +97,9 @@ public class Film {
 		this.regista = regista;
 	}
 
+	@Override
+	public String toString() {
+		return "Film [id=" + id + ", titolo=" + titolo + ", genere=" + genere + ", dataPubblicazione="
+				+ dataPubblicazione + ", minutiDurata=" + minutiDurata + ", regista=" + regista + "]";
+	}
 }

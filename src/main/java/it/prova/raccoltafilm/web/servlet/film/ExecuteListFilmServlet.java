@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import it.prova.raccoltafilm.service.FilmService;
 import it.prova.raccoltafilm.service.MyServiceFactory;
+import it.prova.raccoltafilm.service.RegistaService;
 
 @WebServlet("/ExecuteListFilmServlet")
 public class ExecuteListFilmServlet extends HttpServlet {
@@ -19,9 +20,11 @@ public class ExecuteListFilmServlet extends HttpServlet {
 
 	// injection del Service
 	private FilmService filmService;
+	private RegistaService registaService;
 
 	public ExecuteListFilmServlet() {
 		this.filmService = MyServiceFactory.getFilmServiceInstance();
+		this.registaService = MyServiceFactory.getRegistaServiceInstance();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -38,6 +41,7 @@ public class ExecuteListFilmServlet extends HttpServlet {
 				request.setAttribute("errorMessage", "Elemento non trovato.");
 
 			request.setAttribute("film_list_attribute", filmService.listAllElements());
+			request.setAttribute("registi_list_attribute", registaService.listAllElements());
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");

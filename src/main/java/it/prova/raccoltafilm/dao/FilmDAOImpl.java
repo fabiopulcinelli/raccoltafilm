@@ -61,8 +61,8 @@ public class FilmDAOImpl implements FilmDAO {
 
 	@Override
 	public Optional<Film> findOneEager(Long id) throws Exception {
-		return entityManager.createQuery("from Film f left join fetch f.regista where f.id=:idFilm", Film.class)
-				.setParameter("idFilm", id).getResultList().stream().findFirst();
+		//TODO
+		return null;
 	}
 
 	@Override

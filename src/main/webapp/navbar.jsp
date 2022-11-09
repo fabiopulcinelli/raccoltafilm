@@ -10,7 +10,7 @@
       <div class="collapse navbar-collapse" id="navbarsExample07">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
+            <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/index.jsp">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -27,11 +27,10 @@
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareSearchFilmServlet">Ricerca Film</a></li>
               <li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareInsertFilmServlet">Inserisci Film</a></li>
               
-              
               <%-- QUESTO LINK SERVE SOLO PER DIMOSTRARE COME GESTIRE LA COMPARSA/SCOMPARSA IN BASE AL RUOLO --%>
               <c:if test="${userInfo.isAdmin() }">
               	<li><a class="dropdown-item" href="#">Link che appare solo se sei ADMIN</a></li>
-              	<li><a class="dropdown-item" href="${pageContext.request.contextPath}/PrepareSearchUtenteServlet">Ricerca Utenti</a></li>
+              	<li><a class="dropdown-item" href="${pageContext.request.contextPath }/admin/PrepareSearchUtenteServlet">Ricerca Utenti</a></li>
               </c:if>
             </ul> 
           </li>   

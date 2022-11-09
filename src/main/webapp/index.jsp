@@ -47,6 +47,10 @@
 				  ${errorMessage}
 				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
 				</div>
+				<div class="alert alert-warning alert-dismissible fade show ${messaggio==null?'d-none':'' }" role="alert">
+				  ${messaggio}
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+				</div>
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
 				      <div class="container-fluid py-5">

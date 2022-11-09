@@ -5,10 +5,6 @@
         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
         version="2.2">
 	<persistence-unit name="raccoltafilm_unit" transaction-type="RESOURCE_LOCAL">
-		<class>it.prova.raccoltafilm.model.Utente</class>
-		<class>it.prova.raccoltafilm.model.Ruolo</class>
-		<class>it.prova.raccoltafilm.model.Regista</class>
-		<class>it.prova.raccoltafilm.model.Film</class>
 		<properties>
 			<!-- setup con MySql -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />

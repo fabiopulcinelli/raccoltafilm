@@ -20,7 +20,10 @@
 		<!-- Begin page content -->
 		<main class="flex-shrink-0">
 		  <div class="container">
-		  
+		  		<div class="alert alert-warning alert-dismissible fade show " role="alert">
+				  Per ora non si puo inserire, modificare o cancellare!
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+				</div>
 		  		<div class="alert alert-success alert-dismissible fade show  ${successMessage==null?'d-none':'' }" role="alert">
 				  ${successMessage}
 				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
@@ -41,32 +44,30 @@
 				        <h5>Lista dei risultati</h5> 
 				    </div>
 				    <div class='card-body'>
-				    	<a class="btn btn-primary " href="PrepareInsertRegistaServlet">Add New</a>
+				    	<a class="btn btn-primary " href="#">Add New</a>
 				    
 				        <div class='table-responsive'>
 				            <table class='table table-striped ' >
 				                <thead>
 				                    <tr>
+				                    	<th>Username</th>
 			                         	<th>Nome</th>
 				                        <th>Cognome</th>
-				                        <th>NickName</th>
-				                        <th>Data di Nascita</th>
-				                        <th>Sesso</th>
+				                        <th>Data di creazione</th>
 				                        <th>Azioni</th>
 				                    </tr>
 				                </thead>
 				                <tbody>
-				                	<c:forEach items="${registi_list_attribute }" var="registaItem">
+				                	<c:forEach items="${utenti_list_attribute }" var="utenteItem">
 										<tr>
-											<td>${registaItem.nome }</td>
-											<td>${registaItem.cognome }</td>
-											<td>${registaItem.nickName }</td>
-											<td><fmt:formatDate type = "date" value = "${registaItem.dataDiNascita }" /></td>
-											<td>${registaItem.sesso.abbreviazione }</td>
+											<td>${utenteItem.username }</td>
+											<td>${utenteItem.nome }</td>
+											<td>${utenteItem.cognome }</td>
+											<td><fmt:formatDate type = "date" value = "${utenteItem.dateCreated}" /></td>
 											<td>
-												<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaRegistaServlet?idRegista=${registaItem.id }">Visualizza</a>
-												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareUpdateRegistaServlet?idRegista=${registaItem.id }">Edit</a>
-												<a class="btn btn-outline-danger btn-sm" href="${pageContext.request.contextPath }PrepareDeleteRegistaServlet?idRegista=${registaItem.id }">Delete</a>
+												<a class="btn  btn-sm btn-outline-secondary" href="#">Visualizza</a>
+												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="#">Edit</a>
+												<a class="btn btn-outline-danger btn-sm" href="#">Delete</a>
 											</td>
 										</tr>
 									</c:forEach>

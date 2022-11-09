@@ -60,17 +60,19 @@
 									<label for="cognome" class="form-label">Cognome <span class="text-danger">*</span></label>
 									<input type="text" name="cognome" id="cognome" class="form-control" placeholder="Inserire il cognome" value="${insert_utente_attr.cognome }">
 								</div>
-					<!-- 			
-								<div class="col-md-6">
-									<label for="regista.id">Regista <span class="text-danger">*</span></label>
-								    <select class="form-select" id="regista.id" name="regista.id">
-								    	<option value="" selected> -- Selezionare una voce -- </option>
-								      	<c:forEach items="${registi_list_attribute }" var="registaItem">
-								      		<option value="${registaItem.id}" ${insert_film_attr.regista.id == registaItem.id?'selected':''} >${registaItem.nome } ${registaItem.cognome }</option>
-								      	</c:forEach>
-								    </select>
+								
+								<div class="col-md-6 form-check">
+									<label for="ruoli" class="form-label">Ruoli <span class="text-danger">*</span></label><br>
+								      <c:forEach items="${ruoli_list_attribute }" var="ruoliItem">
+								      	<c:if test="${ruoliList.get(0).getId() == ruoliItem.id}">
+										   <input name="checkruoli" class="form-check-input" checked type="checkbox" id="${ruoliItem.id}" value="${ruoliItem.id}">
+										</c:if>
+								      	<c:if test="${ruoliList.get(0).getId() != ruoliItem.id}">
+										   <input name="checkruoli" class="form-check-input" type="checkbox" id="${ruoliItem.id}" value="${ruoliItem.id}">
+										</c:if>
+								      	<label class="form-check-label" for="${ruoliItem.id}">${ruoliItem.descrizione }</label><br>
+								      </c:forEach>
 								</div>
-					-->
 								<div class="col-12">
 									<button type="submit" name="insertSubmit" value="insertSubmit" id="insertSubmit" class="btn btn-primary">Conferma</button>
 								</div>

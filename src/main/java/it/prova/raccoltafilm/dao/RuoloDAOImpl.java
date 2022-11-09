@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import it.prova.raccoltafilm.model.Ruolo;
+import it.prova.raccoltafilm.model.Utente;
 
 public class RuoloDAOImpl implements RuoloDAO {
 
@@ -19,7 +20,7 @@ public class RuoloDAOImpl implements RuoloDAO {
 	@Override
 	public List<Ruolo> list() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("from Ruolo", Ruolo.class).getResultList();
 	}
 
 	@Override

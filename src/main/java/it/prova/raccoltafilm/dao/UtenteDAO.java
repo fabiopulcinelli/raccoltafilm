@@ -16,4 +16,6 @@ public interface UtenteDAO extends IBaseDAO<Utente> {
 
 	List<Utente> findByExample(Utente example) throws Exception;
 
+	Optional<Utente> findOneEager(Long id) throws Exception;
+
 }

@@ -29,4 +29,6 @@ public interface UtenteService  {
 
 	List<Utente> findByExample(Utente example) throws Exception;
 
+	Utente caricaSingoloElementoEager(Long id) throws Exception;
+
 }

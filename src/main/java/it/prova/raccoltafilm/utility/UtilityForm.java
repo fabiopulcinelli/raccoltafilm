@@ -10,6 +10,7 @@ import org.apache.commons.lang3.math.NumberUtils;
 import it.prova.raccoltafilm.model.Film;
 import it.prova.raccoltafilm.model.Regista;
 import it.prova.raccoltafilm.model.Sesso;
+import it.prova.raccoltafilm.model.Utente;
 
 public class UtilityForm {
 
@@ -48,6 +49,13 @@ public class UtilityForm {
 		return result;
 	}
 
+	public static Utente createUtenteFromParams(String usernameInputParam, String passwordInputParam,
+			String nomeInputParam, String cognomeParam, Date dateCreatedStringParam) {
+
+		Utente result = new Utente(usernameInputParam, passwordInputParam, nomeInputParam, cognomeParam, dateCreatedStringParam);
+		return result;
+	}
+	
 	public static boolean validateFilmBean(Film filmToBeValidated) {
 		// prima controlliamo che non siano vuoti i parametri
 		if (StringUtils.isBlank(filmToBeValidated.getTitolo())
@@ -58,6 +66,18 @@ public class UtilityForm {
 				|| filmToBeValidated.getRegista() == null
 				|| filmToBeValidated.getRegista().getId() == null 
 				|| filmToBeValidated.getRegista().getId() < 1) {
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean validateUtenteBean(Utente utenteToBeValidated) {
+		// prima controlliamo che non siano vuoti i parametri
+		if (StringUtils.isBlank(utenteToBeValidated.getUsername())
+				|| StringUtils.isBlank(utenteToBeValidated.getPassword())
+				|| StringUtils.isBlank(utenteToBeValidated.getNome())
+				|| StringUtils.isBlank(utenteToBeValidated.getCognome())
+				|| utenteToBeValidated.getDateCreated() == null) {
 			return false;
 		}
 		return true;

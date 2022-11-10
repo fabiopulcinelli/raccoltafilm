@@ -62,6 +62,7 @@ public class ExecuteInsertUtenteServlet extends HttpServlet {
 					temp.setId(Long.parseLong(ruoli[i]));
 					ruoliParam.add(temp);
 				}
+				System.out.println(ruoliParam.size());
 			}
 			else {
 				request.setAttribute("insert_utente_attr", utenteInstance);
@@ -75,13 +76,17 @@ public class ExecuteInsertUtenteServlet extends HttpServlet {
 			
 			List<Ruolo> ruoliList = new ArrayList<>(ruoliParam);
 			
-			utenteInstance.setRuoli(ruoliParam);
+			//setto i ruoli
+			for (String stringItem : ruoli!=null?ruoli:new String[] {}) {
+				utenteInstance.getRuoli().add(ruoloService.caricaSingoloElemento(Long.valueOf(stringItem)));
+			}
 			
 			// se la validazione non risulta ok
 			if (!UtilityForm.validateUtenteBean(utenteInstance)) {
 				request.setAttribute("insert_utente_attr", utenteInstance);
 				request.setAttribute("conferma_password", conferma_passwordParam);
-				request.setAttribute("ruoliList", ruoliList);
+				request.setAttribute("ruoliList", 
+						UtilityForm.buildCheckedRolesForPages(ruoloService.listAll(), ruoli));
 				// questo mi serve per la select di registi in pagina
 				request.setAttribute("ruoli_list_attribute", ruoloService.listAll());
 				request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");

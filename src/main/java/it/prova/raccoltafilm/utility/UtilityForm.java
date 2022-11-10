@@ -2,15 +2,20 @@ package it.prova.raccoltafilm.utility;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
+import java.util.Map;
 import it.prova.raccoltafilm.model.Film;
 import it.prova.raccoltafilm.model.Regista;
 import it.prova.raccoltafilm.model.Sesso;
 import it.prova.raccoltafilm.model.Utente;
+import it.prova.raccoltafilm.model.Ruolo;
 
 public class UtilityForm {
 
@@ -92,5 +97,22 @@ public class UtilityForm {
 		} catch (ParseException e) {
 			return null;
 		}
+	}
+	
+	public static Map<Ruolo, Boolean> buildCheckedRolesForPages(List<Ruolo> listaTotaleRuoli,
+			String[] ruoliFromParams) {
+		Map<Ruolo, Boolean> result = new HashMap<>();
+
+		// converto array di string in List di Long
+		List<Long> ruoliIdConvertiti = new ArrayList<>();
+		for (String stringItem : ruoliFromParams != null ? ruoliFromParams : new String[] {}) {
+			ruoliIdConvertiti.add(Long.valueOf(stringItem));
+		}
+
+		for (Ruolo ruoloItem : listaTotaleRuoli) {
+			result.put(ruoloItem, ruoliIdConvertiti.contains(ruoloItem.getId()));
+		}
+
+		return result;
 	}
 }

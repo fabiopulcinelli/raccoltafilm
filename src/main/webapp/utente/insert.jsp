@@ -63,13 +63,8 @@
 								
 								<div class="col-md-6 form-check">
 									<label for="ruoli" class="form-label">Ruoli <span class="text-danger">*</span></label><br>
-								      <c:forEach items="${ruoli_list_attribute }" var="ruoliItem">
-								      	<c:if test="${ruoliList.get(0).getId() == ruoliItem.id}">
-										   <input name="checkruoli" class="form-check-input" checked type="checkbox" id="${ruoliItem.id}" value="${ruoliItem.id}">
-										</c:if>
-								      	<c:if test="${ruoliList.get(0).getId() != ruoliItem.id}">
-										   <input name="checkruoli" class="form-check-input" type="checkbox" id="${ruoliItem.id}" value="${ruoliItem.id}">
-										</c:if>
+								      <c:forEach items="${ruoli_list_attribute }" var="ruoliItem" varStatus="indice">
+									  <input name="checkruoli" class="form-check-input" type="checkbox" id="${ruoliItem.id}" value="${ruoliItem.id}" ${true?'checked':''}>
 								      	<label class="form-check-label" for="${ruoliItem.id}">${ruoliItem.descrizione }</label><br>
 								      </c:forEach>
 								</div>
